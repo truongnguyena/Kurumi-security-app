@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Nguyễn Phạm Nhật Trường - Security Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@400;700;900&display=swap');
+
+        :root {
+            --primary: #ff7eb3;
+            --secondary: #ff758c;
+            --accent: #ffb8d1;
+            --bg-color: #2b1b3d;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-main: #fff;
+            --text-muted: #ffc4d9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color), #40203f);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animated Sakura / Particles Effect */
+        .sakura-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sakura {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        .cv-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+            background: rgba(43, 27, 61, 0.6);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            box-shadow: 0 0 40px rgba(255, 126, 179, 0.4), inset 0 0 20px rgba(255, 126, 179, 0.2);
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Left Panel - Info */
+        .left-panel {
+            background: linear-gradient(180deg, rgba(255, 117, 140, 0.2) 0%, rgba(255, 126, 179, 0.1) 100%);
+            padding: 40px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 126, 179, 0.3);
+        }
+
+        .avatar-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            padding: 5px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 126, 179, 0.6);
+            transition: transform 0.4s;
+        }
+
+        .avatar-container:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo-kurumi {
+            width: 80px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--primary));
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(255, 126, 179, 0.5);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .role {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 15px;
+        }
+
+        .contact-item i {
+            background: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255, 126, 179, 0.4);
+            flex-shrink: 0;
+        }
+
+        .contact-detail {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-detail span:first-child {
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Right Panel - Details */
+        .right-panel {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-family: 'Quicksand', sans-serif;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid rgba(255, 126, 179, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: "✨";
+            font-size: 20px;
+        }
+
+        .skill-bars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-item .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .progress-bg {
+            height: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 126, 179, 0.3);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .timeline {
+            border-left: 2px solid var(--primary);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--bg-color);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            left: -30px;
+            top: 5px;
+            box-shadow: 0 0 10px var(--primary);
+            transition: background 0.3s;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--primary);
+        }
+
+        .tl-year {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .tl-title {
+            font-size: 18px;
+            color: #fff;
+            margin: 5px 0;
+        }
+
+        .tl-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Badges */
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            background: rgba(255, 126, 179, 0.2);
+            border: 1px solid var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 126, 179, 0.2);
+            transition: 0.3s;
+        }
+
+        .badge:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 850px) {
+            .cv-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .left-panel {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 126, 179, 0.3);
+            }
+
+            .skill-bars {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sakura-container" id="sakura-container"></div>
+
+    <div class="cv-wrapper">
+        <div class="left-panel">
+            <!-- Kurumi Security Logo SVG -->
+            <svg class="logo-kurumi" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff1a75" />
+                        <stop offset="100%" stop-color="#ff7eb3" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <!-- Shield Base -->
+                <path fill="url(#shieldGrad)" d="M50 5 L90 20 L90 50 C90 75 50 95 50 95 C50 95 10 75 10 50 L10 20 Z"
+                    filter="url(#glow)" />
+
+                <!-- Clock Motif (Zafkiel) -->
+                <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                <line x1="50" y1="50" x2="50" y2="30" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <line x1="50" y1="50" x2="65" y2="50" stroke="white" stroke-width="2" stroke-linecap="round" />
+
+                <!-- Stylized K -->
+                <text x="50" y="68" font-family="'Orbitron', sans-serif" font-weight="900" font-size="35" fill="white"
+                    text-anchor="middle" style="text-shadow: 0 0 10px rgba(255,255,255,0.8);">K</text>
+            </svg>
+
+            <div class="avatar-container">
+                <!-- Anime-style placeholder avatar -->
+                <img src="hinh-avatar-anime-nu-phong-cach-ngau-va-ca-tinh.jpg" alt="Avatar">
+            </div>
+
+            <h1 class="name">Nguyễn Phạm Nhật Trường</h1>
+            <p class="role">Lead Cyber Security Engineer & Founder</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-birthday-cake"></i>
+                    <div class="contact-detail">
+                        <span>Ngày Sinh</span>
+                        <span>01 / 11 / 2004</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="contact-detail">
+                        <span>Điện Thoại</span>
+                        <span>0901 194 827</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-detail">
+                        <span>Email</span>
+                        <span>truongnpnps40833@gmail.com</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-university"></i>
+                    <div class="contact-detail">
+                        <span>Ngân Hàng (MSB)</span>
+                        <span>1901112004</span>
+                    </div>
+                </div>
+
+                <!-- Nút Donate SePay (VietQR Link) -->
+                <div style="margin-top: 30px; text-align: center;">
+                    <a href="https://qr.sepay.vn/img?bank=MSB&acc=1901112004&template=compact&des=Ung%20Ho%20Dev%20KurumiV6"
+                        target="_blank"
+                        style="display: inline-block; background: linear-gradient(90deg, #ff758c, #ff7eb3); color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; font-family: 'Quicksand', sans-serif; box-shadow: 0 5px 15px rgba(255,126,179,0.5); font-size: 16px; transition: transform 0.3s; width: 100%;">
+                        <i class="fas fa-qrcode" style="margin-right: 8px;"></i> ỦNG HỘ TÁC GIẢ (SEPAY)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="section">
+                <h2 class="section-title">Về Bản Thân</h2>
+                <p style="color: var(--text-muted); line-height: 1.8; text-align: justify;">
+                    Là một chuyên gia bảo mật (Cyber Security Engineer) đam mê nghệ thuật và văn hóa Anime,
+                    tôi tận dụng kỹ năng kỹ thuật sâu rộng của mình để xây dựng phần mềm Antivirus cao cấp.
+                    Dự án Kurumi Security là tâm huyết của tôi—kết hợp giữa thiết kế UI 2D đẹp mắt và lõi quét virus
+                    C/C++ đa luồng bất khả chiến bại. Khát vọng của tôi là tạo ra không gian mạng sạch sẽ, an toàn
+                    nhưng vẫn đậm chất thẩm mỹ!
+                </p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Kỹ Năng Kỹ Thuật (Skill Set)</h2>
+                <div class="skill-bars">
+                    <div class="skill-item">
+                        <div class="skill-name"><span>C/C++ & OS Internals</span> <span>98%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="98%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Python & AI Malware Detection</span> <span>95%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Java Spring Boot & Cloud API</span> <span>90%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>C# WPF UI/UX Design</span> <span>92%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="92%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Hành Trình Dự Án</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="tl-year">2026 - Hiện Tại</div>
+                        <div class="tl-title">Kurumi Security V6 - Founder & Architect</div>
+                        <div class="tl-desc">
+                            Thiết kế hệ thống Antivirus tích hợp AI và Time-Eye Shield. Phát triển lõi đa luồng Zafkiel
+                            Nuke cho phép tận diệt mã độc tại Ring-0 và hệ thống Cloud Intelligence bảo vệ Real-Time.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Chuyên Môn Cốt Lõi</h2>
+                <div class="badges-container">
+                    <span class="badge">Reverse Engineering</span>
+                    <span class="badge">Malware Analysis</span>
+                    <span class="badge">UI/UX Anime Design</span>
+                    <span class="badge">Cloud Microservices</span>
+                    <span class="badge">System Optimization</span>
+                    <span class="badge">Cryptography</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animate Skills
+        window.onload = () => {
+            const bars = document.querySelectorAll('.progress-bar');
+            setTimeout(() => {
+                bars.forEach(bar => {
+                    bar.style.width = bar.getAttribute('data-width');
+                });
+            }, 500);
+
+            // Create falling sakura
+            const container = document.getElementById('sakura-container');
+            for (let i = 0; i < 30; i++) {
+                let sakura = document.createElement('div');
+                sakura.className = 'sakura';
+
+                // Randomize properties
+                let size = Math.random() * 15 + 5;
+                let left = Math.random() * 100;
+                let duration = Math.random() * 5 + 5;
+                let delay = Math.random() * 5;
+
+                sakura.style.width = size + 'px';
+                sakura.style.height = size + 'px';
+                sakura.style.left = left + 'vw';
+                sakura.style.top = '-20px';
+                sakura.style.animationDuration = duration + 's';
+                sakura.style.animationDelay = delay + 's';
+
+                container.appendChild(sakura);
+            }
+        };
+    </script>
+</body>
+
+</html>

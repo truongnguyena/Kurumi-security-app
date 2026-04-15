@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurumi Security V6 - Ultimate Sentinel | Giới Thiệu Chuyên Sâu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff007f;
+            --secondary: #00ffcc;
+            --dark-bg: #0b0c10;
+            --dark-panel: #1f2833;
+            --text-light: #c5c6c7;
+            --text-bright: #ffffff;
+            --glow-pink: rgba(255, 0, 127, 0.6);
+            --glow-cyan: rgba(0, 255, 204, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER & HERO SECTION --- */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1b1c25 0%, var(--dark-bg) 100%);
+            overflow: hidden;
+        }
+
+        .cyber-grid {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: 
+                linear-gradient(transparent 0%, rgba(0, 255, 204, 0.1) 2%, transparent 3%),
+                linear-gradient(90deg, transparent 0%, rgba(255, 0, 127, 0.1) 2%, transparent 3%);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px);
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            padding: 40px;
+            background: rgba(31, 40, 51, 0.4);
+            border: 1px solid var(--primary);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 0 50px var(--glow-pink);
+            animation: pulse-border 2s infinite alternate;
+        }
+
+        @keyframes pulse-border {
+            from { box-shadow: 0 0 20px var(--glow-pink), inset 0 0 10px var(--glow-pink); }
+            to { box-shadow: 0 0 50px var(--glow-pink), inset 0 0 20px var(--glow-pink); }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: var(--text-bright);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px var(--primary);
+        }
+
+        h1 span {
+            color: var(--secondary);
+            text-shadow: 0 0 20px var(--secondary);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        /* --- CONTENT WRAPPER --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            margin: 15px auto 0;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        /* --- UI OVERVIEW --- */
+        .ui-overview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .ui-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .ui-text h3 {
+            font-size: 2rem;
+            color: var(--text-bright);
+            margin-bottom: 20px;
+        }
+
+        .ui-text p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .ui-image-mock {
+            flex: 1;
+            min-width: 400px;
+            height: 350px;
+            background: var(--dark-panel);
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .mock-sidebar {
+            width: 30%;
+            background: #0a0f1c;
+            border-right: 1px solid var(--secondary);
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mock-btn {
+            height: 30px;
+            background: #1a2b4c;
+            border-radius: 5px;
+            opacity: 0.8;
+        }
+        .mock-main {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .mock-big-btn {
+            width: 80%; height: 50px;
+            background: var(--primary);
+            border-radius: 25px;
+            box-shadow: 0 0 15px var(--glow-pink);
+        }
+        .mock-log {
+            width: 90%; height: 100px;
+            border: 1px solid var(--primary);
+            background: #000;
+        }
+
+        /* --- FEATURES GRID --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--dark-panel);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--secondary));
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--glow-cyan);
+            border-color: var(--secondary);
+        }
+
+        .feature-card:hover::before {
+            left: 0;
+            width: 100%;
+        }
+
+        .f-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--glow-pink);
+        }
+
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-bright);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .feature-card p {
+            font-size: 1.15rem;
+            color: #a4a9b0;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #050608;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--primary);
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .ui-image-mock { min-width: 100%; }
+        }
+
+        /* --- SCROLL REVEAL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition-delay: 0.1s;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="cyber-grid"></div>
+        <div class="hero-content reveal active">
+            <h1>Kurumi <span>Security</span> V6</h1>
+            <p class="subtitle">Hệ Thống Phòng Thủ OS Đa Năng Tối Thượng</p>
+            <p style="font-size: 1.2rem;">Thiết kế đột phá. Công nghệ lõi đa luồng. Không có sự thỏa hiệp với mã độc.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title reveal">Giao Diện Tiên Phong (Premium UI)</h2>
+        <div class="ui-overview reveal">
+            <div class="ui-text">
+                <h3>Thẩm mỹ không gian (Cyber-Anime Design)</h3>
+                <p>Khác biệt hoàn toàn với các phần mềm diệt virus truyền thống khô khan, <b>Kurumi Security V6</b> mang trên mình ngôn ngữ thiết kế <span class="highlight">CustomTkinter Dark Mode</span> cao cấp, lấy cảm hứng từ không gian số và văn hóa Anime.</p>
+                <p>Khung điều khiển được chia tỷ lệ <b>1280x800</b> rộng rãi với 3 cụm riêng biệt: Không góc chết, không rườm rà. Bảng Panel bên trái chứa các module tác chiến, và Main View bên phải là màn hình Radar hiển thị Log cập nhật dữ liệu Real-time quét và bắt tín hiệu của ứng dụng.</p>
+            </div>
+            <div class="ui-image-mock">
+                <!-- Mô phỏng khung UI -->
+                <div class="mock-sidebar">
+                    <div style="height: 60px; background: #222; border-radius: 10px; margin-bottom: 10px;"></div>
+                    <div class="mock-btn" style="background:#1a2b4c"></div>
+                    <div class="mock-btn" style="background:#550000"></div>
+                    <div style="flex:1"></div>
+                    <div class="mock-btn" style="background:#2b00ff"></div>
+                    <div class="mock-btn" style="background:#7b00ff"></div>
+                    <div class="mock-btn" style="background:#008080"></div>
+                </div>
+                <div class="mock-main">
+                    <div style="display:flex; justify-content:space-between; width:100%">
+                        <div style="width: 150px; height: 20px; background: #00ffcc; opacity:0.8"></div>
+                        <div style="width: 80px; height: 20px; background: #ccc; opacity:0.5"></div>
+                    </div>
+                    <div class="mock-big-btn"></div>
+                    <div style="width: 70%; height: 8px; background: #ff007f; border-radius: 4px;"></div>
+                    <div class="mock-log"></div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title reveal">TÍNH NĂNG CỐT LÕI (REAL ENGINE)</h2>
+        <div class="features-grid">
+            
+            <!-- Core 1 -->
+            <div class="feature-card reveal" style="transition-delay: 0.1s;">
+                <i class="fa-solid fa-microchip f-icon"></i>
+                <h3>Động Cơ Quét 64-Thread Nuke</h3>
+                <p>Tạm biệt ứng dụng đơn luồng. V6 kích hoạt <span class="highlight">Giao thức ThreadPoolExecutor đa lõi</span>, quét đồng loạt toàn bộ không gian ổ đĩa hàng ngàn file/giây.</p>
+                <p>Hệ thống không chỉ rà soát `.exe`, `.dll` mà nay đã <b>Deep Scan</b> xuyên sâu thủng vào Web Scripts và App di động (`.apk`, `.php`, `.js`, `.zip`). Khi bật Nuke Mode, mã rác sẽ bị ép xoá chết ở tầng OS bất chấp quyền hạn thư mục (os.chmod override).</p>
+            </div>
+
+            <!-- Core 2 -->
+            <div class="feature-card reveal" style="transition-delay: 0.2s;">
+                <i class="fa-solid fa-globe f-icon"></i>
+                <h3>Trạm Điều Hướng VPN Thời Gian Thực</h3>
+                <p>Khác biệt với các ứng dụng fake VPN giả mạo, tính năng này cào <b>IP Sống Thực Tế (Live Proxy)</b> thông qua hệ thống ProxyScrape toàn cầu (US, Japan, SG...).</p>
+                <p>Bằng việc can thiệp trực tiếp vào <span class="highlight">Windows Inet Registry</span> thông qua Ctypes, Kurumi ép thiết bị nhảy IP vật lý mạng tức thì mà không cần cài rườm rà bộ adapter rác của các app VPN thụ động.</p>
+            </div>
+
+            <!-- Core 3 -->
+            <div class="feature-card reveal" style="transition-delay: 0.3s;">
+                <i class="fa-solid fa-envelope-circle-check f-icon"></i>
+                <h3>Hệ Thống Trạm Email Ản Danh (API Socket)</h3>
+                <p>Vượt qua hoàn toàn các giao diện Web. Hệ thống Python trực tiếp gọi <b>Mail.tm API</b>, vượt tường lửa bằng Header Browser, tạo ra địa chỉ E-mail nặc danh dùng một lần.</p>
+                <p>Có tích hợp <span class="highlight">Poller Đa Luồng chạy ngầm</span>: Nó sẽ nằm chờ sau nền hệ thống, và mỗi khi có E-mail mới bắn tới cổng SMTP, nó sẽ kéo thẳng thư về in ra màn hình Log chỉ tốn vỏn vẹn 10 giây delay!</p>
+            </div>
+
+            <!-- Core 4 -->
+            <div class="feature-card reveal" style="transition-delay: 0.4s;">
+                <i class="fa-solid fa-shield-virus f-icon"></i>
+                <h3>Watchdog Chống Sập & Web Sniper</h3>
+                <p><b>Watchdog:</b> Module cài phân vùng OS, lùng sục mọi tiến trình ngầm (bỏ qua Whitelist OS). Cứ phát hiện tiến trình cắn <b>>90% CPU</b>, hệ thống sẽ chém Tử Hình (Kill-sys) ngay tắp lự để giữ an toàn cho RAM.</p>
+                <p><b>Web Sniper:</b> Đọc gói tín hiệu Inet Sockets thực xuất ra các dải IP. Quét Reverse DNS và nhốt mọi kết nối chứa từ khóa độc hại vào "Vùng trống" (0.0.0.0) vĩnh viễn trong file hosts.</p>
+            </div>
+
+            <!-- Core 5 -->
+            <div class="feature-card reveal" style="transition-delay: 0.5s;">
+                <i class="fa-solid fa-fan f-icon"></i>
+                <h3>Hacker Công Nghệ LAN (IoT Fan Bypass)</h3>
+                <p>Đây không phải giả lập. Kurumi bắn lệnh Ping HTTP TCP trực tiếp vào các trạm phát sóng nhà thông minh nội bộ <b>(192.168.1.X Port 80)</b>.</p>
+                <p>Thuật toán ép bắt <span class="highlight">Webhook Tasmota / Shelly Bypass Request</span> từ máy tính xuyên qua Hub vật lý để mở rơ-le quạt điện hoặc ổ cắm thông minh ngay tức khắc mà không cần mở cài đặt kết nối điện thoại!</p>
+            </div>
+
+            <!-- Core 6 -->
+            <div class="feature-card reveal" style="transition-delay: 0.6s;">
+                <i class="fa-solid fa-user-secret f-icon"></i>
+                <h3>Chữ Ký Tác Giả Build-in Gốc</h3>
+                <p>Mọi thông tin của tác giả và thông tin thanh toán không bị ném ra ngoài Web Browser lỏng lẻo.</p>
+                <p>Dữ liệu này được kết cấu trực tiếp thành một khung <span class="highlight">Toplevel Native Widget</span> mã hoá nằm ngay trong tim ứng dụng, được niêm phong chống sửa đổi dưới dạng file thực thi (OneFile .exe) gọn nhẹ.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Built with Passion, Code, and Time-Eye Magic.</p>
+        <p style="color: var(--primary); margin-top: 10px; font-family: 'Orbitron', sans-serif;">© 2026 KURUMI SECURITY</p>
+    </footer>
+
+    <script>
+        // Scroll Reveal logic
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
